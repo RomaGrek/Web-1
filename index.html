@@ -14,13 +14,9 @@
         }
         .inputTable {
             width: 100%; /* ширина таблицы в блоке, в котором она находится */
-            margin: auto;
+            /*margin: auto;*/
             border-spacing: 10px;
-            position: absolute;
             border-collapse: collapse;
-            /*убираем пустые промежутки между ячейками*/
-            border: 1px solid black;
-            /*устанавливаем для таблицы внешнюю границу серого цвета толщиной 1px*/
             table-layout: fixed;
 
         }
@@ -29,7 +25,7 @@
             margin-top: auto;
         }
         .inputTable td, .inputTable th {
-            border: 1px solid #000000;
+            border: 10px solid grey;
             padding: 11px 11px;
             text-align: left;
         }
@@ -39,6 +35,7 @@
         #input-x {
             height: 5px;
         }
+
         .authorInfo {
             font-family: Georgia, 'Times New Roman', Times, serif;
             font-size: 14pt;
@@ -60,6 +57,8 @@
         .lol {
             width: 100%;
             background: grey;
+            table-layout: fixed;
+
         }
 
         .button:hover {
@@ -67,13 +66,42 @@
         }
         input[type="submit"] {
             background-color: dimgrey;
+            color: white;
             color: black;
             border-radius: 8px;
             width: 250px;
             font-size: 20px;
             text-align: center;
             height: 40px;
+            margin-left: 190px;
         }
+        .button {
+            position: static;
+
+        }
+        #corX {
+            position: relative;
+            left: 100px;
+        }
+        #radR {
+            position: relative;
+            left: 134px;
+        }
+        #info {
+            text-align: center;
+            top: auto;
+        }
+        #info-str {
+            height: 90px;
+        }
+        #result-div {
+            overflow-y: scroll;
+            height: 350px;
+        }
+        .gen-str {
+            max-height: 100px;
+        }
+
     </style>
 </head>
 <body>
@@ -83,7 +111,7 @@
             ФИО: Логинов Роман Алексеевич | Группа: P3232 | Вариант: 644
         </th>
     </tr>
-    <tr>
+    <tr class="gen-str">
         <td class="graphik">
             Область<br>
             <img src="image.png" alt="Тут должен быть график">
@@ -95,13 +123,13 @@
                     <caption>Входные значения</caption>
                     <tr>
                         <td id="input-x">
-                            <label for="corX">Введите значение координаты X</label>
+                            <label for="corX">Введите значение координаты X:</label>
                             <input type="text" id="corX" placeholder="-5...3" name="cordinateX">
                         </td>
                     </tr>
                     <tr>
                         <td id="input-y">
-                            <label for="y-1">Выберите значение координаты Y</label><br>
+                            <label for="y-1">Выберите значение координаты Y:</label>
                             <label><input type="button" class="button" id="y-1" value="-2" name="cordinateY"></label>
                             <label><input type="button" class="button" id="y-2" value="-1.5" name="cordinateY"></label>
                             <label><input type="button" class="button" id="y-3" value="-1" name="cordinateY"></label>
@@ -115,7 +143,7 @@
                     </tr>
                     <tr>
                         <td id="input-r">
-                            <label for="radR">Введите значение радиуса R</label>
+                            <label for="radR">Введите значение радиуса R:</label>
                             <input type="text" id="radR" placeholder="2...5" name="radiusR" maxlength="7">
                         </td>
                     </tr>
@@ -124,8 +152,8 @@
                             <input class="but" id="input_p" type="submit" value="Submit">
                         </td>
                     </tr>
-                    <tr>
-                        <td><b id="info">INFO:</b></td>
+                    <tr id="info-str">
+                        <td id="info"><b id="text-info">INFO:</b></td>
                     </tr>
                 </table>
             </form>
@@ -133,16 +161,18 @@
     </tr>
     <tr>
         <th id="table_result" colspan="2">
-            <table class="lol" id="table_result_ok">
-                <tr>
-                    <th class="cor">X</th>
-                    <th class="cor">Y</th>
-                    <th class="cor">R</th>
-                    <th class="time_real">Время проверки</th>
-                    <th class="time_complete">Продолжительность</th>
-                    <th class="result">Результат</th>
+            <div id="result-div">
+                <table class="lol" id="table_result_ok">
+                    <tr>
+                        <th class="cor">X</th>
+                        <th class="cor">Y</th>
+                        <th class="cor">R</th>
+                        <th class="time_real">Время проверки</th>
+                        <th class="time_complete">Продолжительность</th>
+                        <th class="result">Результат</th>
                 </tr>
             </table>
+            </div>
         </th>
     </tr>
 </table>

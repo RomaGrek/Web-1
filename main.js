@@ -30,16 +30,16 @@ let x, y, r, m;
     function validateX() {
         x = document.querySelector("input[name=cordinateX]").value.replace(",", ".");
         if(x === "") {
-            $("#info").after('<br class="error"><span class="error">Поле X не может быть пустым!</span>');
+            $("#text-info").after('<br class="error"><span class="error">Поле X не может быть пустым!</span>');
             return false;
         }else if(x === '-') {
-            $("#info").after('<br class="error"><span class="error">Координата X не может состоять только из минуса</span>');
+            $("#text-info").after('<br class="error"><span class="error">Координата X не может состоять только из минуса</span>');
             return false;
         }else if (!isValidNum(x)) {
-            $("#info").after('<br class="error"><span class="error">В значении X могут быть использованы только числа</span>');
+            $("#text-info").after('<br class="error"><span class="error">В значении X могут быть использованы только числа</span>');
             return false;
         }else if(x >= 3 || x <= (-5)) {
-            $("#info").after('<br class="error"><span class="error">Неверный диапазон X (X = (-5...3))</span>');
+            $("#text-info").after('<br class="error"><span class="error">Неверный диапазон X (X = (-5...3))</span>');
             return false;
         }
         if (document.querySelector("input[name=cordinateX]").value.length > 5) {
@@ -51,7 +51,7 @@ let x, y, r, m;
 
     function validateY() {
         if(y === undefined) {
-            $("#info").after('<br class="error"><span class="error">Вы не выбрали значение Y</span>');
+            $("text-info").after('<br class="error"><span class="error">Вы не выбрали значение Y</span>');
             return false;
         }
         return true;
@@ -60,19 +60,19 @@ let x, y, r, m;
     function validateR() {
         r = document.querySelector("input[name=radiusR]").value.replace(",", ".");
         if(r === "") {
-            $("#info").after('<br class="error"><span class="error">Поле R не может быть пустым!</span>');
+            $("#text-info").after('<br class="error"><span class="error">Поле R не может быть пустым!</span>');
             return false;
         }else if(r === '-') {
-            $("#info").after('<br class="error"><span class="error">Радиус R не может содержать "-"</span>');
+            $("#text-info").after('<br class="error"><span class="error">Радиус R не может содержать "-"</span>');
             return false;
         }else if (!isValidNum(r)) {
-            $("#info").after('<br class="error"><span class="error">В значении К могут быть использованы только числа</span>');
+            $("#text-info").after('<br class="error"><span class="error">В значении К могут быть использованы только числа</span>');
             return false;
         }else if(r < 0) {
-            $("#info").after('<br class="error"><span class="error">Радиус R не может быть отрицательным числом</span>');
+            $("#text-info").after('<br class="error"><span class="error">Радиус R не может быть отрицательным числом</span>');
             return false;
         }else if(r <= 2 || r >= 5) {
-            $("#info").after('<br class="error"><span class="error">Неверный диапазон R (R = (2...5))</span>');
+            $("#text-info").after('<br class="error"><span class="error">Неверный диапазон R (R = (2...5))</span>');
             return false;
         }
         if (document.querySelector("input[name=radiusR]").value.length > 5) {
@@ -84,7 +84,7 @@ let x, y, r, m;
     function validate() {
         $(".error").remove();
         if (validateX() && validateY() && validateR()) {
-            $("#info").after('<br class="error"><span class="error">Выполнено!</span>');
+            $("#text-info").after('<br class="error"><span class="error">Выполнено!</span>');
             return true;
         }
         return false;
