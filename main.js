@@ -51,7 +51,7 @@ let x, y, r, m;
 
     function validateY() {
         if(y === undefined) {
-            $("text-info").after('<br class="error"><span class="error">Вы не выбрали значение Y</span>');
+            $("#text-info").after('<br class="error"><span class="error">Вы не выбрали значение Y</span>');
             return false;
         }
         return true;
